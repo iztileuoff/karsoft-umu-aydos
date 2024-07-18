@@ -10,7 +10,6 @@ return new class extends Migration {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50);
-            $table->boolean('is_public')->default(true);
             $table->timestamps();
         });
     }

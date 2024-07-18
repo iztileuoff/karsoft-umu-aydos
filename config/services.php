@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'eskiz' => [
+        'email' => eenv('ESKIZ_EMAIL'),
+        'password' => env('ESKIZ_PASSWORD'),
+        'from' => env('ESKIZ_FROM'),
+    ]
+
 ];

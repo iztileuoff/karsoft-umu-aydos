@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('question_result', function (Blueprint $table) {
             $table->foreignId('question_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('option_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('drag_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('result_id')->constrained()->cascadeOnDelete();
+            $table->json('options')->nullable();
+            $table->json('drags')->nullable();
             $table->string('answer_text')->nullable();
-            $table->tinyInteger('position')->nullable();
-            $table->boolean('is_correct');
-            $table->timestamps();
+            $table->boolean('is_answered')->default(false);
+            $table->boolean('is_correct')->nullable();
         });
     }
 

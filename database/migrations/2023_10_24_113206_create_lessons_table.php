@@ -10,8 +10,10 @@ return new class extends Migration {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->foreignId('module_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('lesson_type_id')->constrained()->cascadeOnDelete();
             $table->unsignedTinyInteger('position');
-            $table->string('title');
+            $table->boolean('is_free')->default(false);
+            $table->text('title');
             $table->timestamps();
         });
     }

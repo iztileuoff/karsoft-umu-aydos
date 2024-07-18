@@ -9,8 +9,9 @@ return new class extends Migration {
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->text('title');
             $table->text('description');
+            $table->unsignedTinyInteger('position')->nullable();
             $table->timestamps();
         });
     }

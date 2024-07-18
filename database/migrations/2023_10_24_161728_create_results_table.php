@@ -10,8 +10,12 @@ return new class extends Migration {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('resultable');
-            $table->string('complated_at')->nullable();
+            $table->morphs('resultable');
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('complated_at')->nullable();
+            $table->unsignedTinyInteger('count_questions')->nullable();
+            $table->unsignedTinyInteger('count_correct_questions')->nullable();
+            $table->unsignedTinyInteger('count_incorrect_questions')->nullable();
             $table->timestamps();
         });
     }

@@ -9,10 +9,10 @@ return new class extends Migration {
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignId('type_id')->constrained();
+            $table->text('title');
+            $table->foreignId('question_type_id')->constrained();
             $table->morphs('questionable');
-            $table->string('answer_explanation')->nullable();
+            $table->text('answer_explanation')->nullable();
             $table->timestamps();
         });
     }

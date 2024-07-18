@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'structured' => false,
+    'structured' => true,
     'crud_folders' => true,
 
     /*
@@ -66,7 +66,7 @@ return [
             'value' => 'application/json',
         ],
         [
-            'key' => 'Content-Type',
+            'key' => 'Content-QuestionType',
             'value' => 'application/json',
         ],
     ],

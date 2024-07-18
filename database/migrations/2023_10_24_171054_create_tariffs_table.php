@@ -9,9 +9,9 @@ return new class extends Migration {
     {
         Schema::create('tariffs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->text('title');
             $table->text('description');
-            $table->tinyInteger('month');
+            $table->unsignedTinyInteger('month');
             $table->unsignedMediumInteger('price');
             $table->timestamps();
         });
