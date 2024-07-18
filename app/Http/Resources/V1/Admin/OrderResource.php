@@ -23,8 +23,8 @@ class OrderResource extends JsonResource
             'amount' => $this->amount,
             'is_paid' => $this->is_paid,
             'payment_url' => $this->when(! $request->routeIs('admin.*'), $this->payment_url()),
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

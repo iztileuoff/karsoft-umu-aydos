@@ -15,8 +15,8 @@ class ModuleResource extends JsonResource
             'title' => $this->getTranslations('title'),
             'description' => $this->getTranslations('description'),
             'lessons_count' => $this->whenCounted('lessons'),
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

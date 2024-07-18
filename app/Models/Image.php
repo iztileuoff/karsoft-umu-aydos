@@ -19,6 +19,8 @@ class Image extends Model
         'file_name' => 'string',
         'imageable_id' => 'integer',
         'imageable_type' => 'string',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     public function url(): Attribute
@@ -26,20 +28,6 @@ class Image extends Model
         return new Attribute(
             get: fn($value, $attributes) => config('app.url') . "/storage/images/" . $attributes['file_name'],
             set: null
-        );
-    }
-
-    public function createdAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['created_at'])->format('Y-m-d H:i:s')
-        );
-    }
-
-    public function updatedAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['updated_at'])->format('Y-m-d H:i:s')
         );
     }
 
