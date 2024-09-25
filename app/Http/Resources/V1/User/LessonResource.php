@@ -21,7 +21,7 @@ class LessonResource extends JsonResource
             'title' => $this->translate('title', app()->getLocale()),
             'content_url' =>  config('app.front_url') . '/content/'. $this->oldestContent?->id,
             'is_free' => $this->is_free,
-            'is_saw' => $this->users()->exists(),
+            'is_saw' => $this->users->exists(),
         ];
     }
 }
