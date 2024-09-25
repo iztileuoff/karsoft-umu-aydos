@@ -23,13 +23,13 @@ class AuthenticatationUser
         ]);
 
         $sanitizePhoneNumber = preg_replace('/[^0-9]/', '', $request->phone);
-        $eskizService = new EskizService($sanitizePhoneNumber);
+//        $eskizService = new EskizService($sanitizePhoneNumber);
 
-        $pinCode = rand(1000,9999);
-        $message = "Ваш код подтверждения UMU Aydos: {$pinCode}";
-        $eskizService->sendSms($message);
+//        $pinCode = rand(1000,9999);
+//        $message = "Ваш код подтверждения UMU Aydos: {$pinCode}";
+//        $eskizService->sendSms($message);
 
         Cache::forget($user->phone);
-        Cache::put($user->phone, $pinCode, now()->addMinutes(3));
+        Cache::put($user->phone, 1111, now()->addMinutes(3));
     }
 }

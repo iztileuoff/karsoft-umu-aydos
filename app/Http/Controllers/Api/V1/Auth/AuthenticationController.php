@@ -9,6 +9,9 @@ use Illuminate\Http\JsonResponse;
 
 class AuthenticationController extends Controller
 {
+    /**
+     * @throws \Exception
+     */
     public function __invoke(AuthenticationRequest $request, AuthenticatationUser $authenticatationUser): JsonResponse
     {
         $authenticatationUser->execute($request);
