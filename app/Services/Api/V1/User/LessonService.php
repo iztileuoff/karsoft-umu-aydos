@@ -12,8 +12,7 @@ class LessonService
     public function index(Request $request, Module $module): array
     {
         $lessons = $module->lessons()
-            ->with(['lessonType', 'oldestContent'])
-            ->with(['users' => function (Builder $query) {
+            ->with(['lessonType', 'oldestContent', 'users' => function (Builder $query) {
                 $query->where('id', auth()->id());
             }])
             ->orderBy('position', 'asc');
