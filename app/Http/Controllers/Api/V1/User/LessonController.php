@@ -26,6 +26,8 @@ class LessonController extends Controller
 
     public function show(Lesson $lesson): JsonResponse
     {
+        auth()->user()->lessons()->syncWithoutDetaching($lesson->id);
+
         return response()->success(new LessonItemResource($lesson->load(['oldestContent', 'results'])));
     }
 }
