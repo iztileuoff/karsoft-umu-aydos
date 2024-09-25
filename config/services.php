@@ -32,7 +32,7 @@ return [
     ],
 
     'eskiz' => [
-        'email' => eenv('ESKIZ_EMAIL'),
+        'email' => env('ESKIZ_EMAIL'),
         'password' => env('ESKIZ_PASSWORD'),
         'from' => env('ESKIZ_FROM'),
     ]

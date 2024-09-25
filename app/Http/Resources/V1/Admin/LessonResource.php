@@ -20,8 +20,8 @@ class LessonResource extends JsonResource
             'title' => $this->getTranslations('title'),
             'is_free' => $this->is_free,
             'contents' => $this->when($this->lesson_type_id == LessonType::CONTENT->value, ContentResource::collection($this->whenLoaded('contents'))),
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

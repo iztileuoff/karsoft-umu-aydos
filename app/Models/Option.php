@@ -23,21 +23,9 @@ class Option extends Model
         'drag_text' => 'string',
         'is_correct' => 'boolean',
         'position' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
-
-    public function createdAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['created_at'])->format('Y-m-d H:i:s')
-        );
-    }
-
-    public function updatedAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['updated_at'])->format('Y-m-d H:i:s')
-        );
-    }
 
     public function question(): BelongsTo
     {

@@ -16,8 +16,8 @@ class OptionResource extends JsonResource
             'drag_text' => $this->when($request->routeIs('admin.*'), $this->drag_text),
             'is_correct' => $this->when($request->routeIs('admin.*'), $this->is_correct),
             'position' => $this->when($request->routeIs('admin.*'), $this->position),
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

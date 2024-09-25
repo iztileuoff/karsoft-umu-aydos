@@ -14,8 +14,8 @@ class ImageResource extends JsonResource
             'id' => $this->id,
             'file_name' => $this->file_name,
             'url' => $this->url,
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

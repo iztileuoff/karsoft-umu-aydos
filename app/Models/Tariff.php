@@ -24,23 +24,11 @@ class Tariff extends Model
         'description' => 'string',
         'month' => 'integer',
         'price' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     public $translatable = ['title', 'description'];
-
-    public function createdAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['created_at'])->format('Y-m-d H:i:s')
-        );
-    }
-
-    public function updatedAt(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Carbon::parse($attributes['updated_at'])->format('Y-m-d H:i:s')
-        );
-    }
 
     public function orders(): HasMany
     {

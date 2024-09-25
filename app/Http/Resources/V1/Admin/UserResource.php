@@ -24,8 +24,8 @@ class UserResource extends JsonResource
             'role_name' => $this->role->name,
             'available_to' => $this->available_to,
             'level' => $this->profile->level,
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }

@@ -13,8 +13,8 @@ class PaymentResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at),
-            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at),
+            'created_at' => $this->when($request->routeIs('admin.*'), $this->created_at?->format('Y-m-d H:i:s')),
+            'updated_at' => $this->when($request->routeIs('admin.*'), $this->updated_at?->format('Y-m-d H:i:s')),
         ];
     }
 }
